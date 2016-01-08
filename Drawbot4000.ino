@@ -12,14 +12,14 @@ void setup() {
   Serial.begin(38400);
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
   delay(2000);
-  LM.setSpeed(2);
-  RM.setSpeed(2);
+  LM.setSpeed(12);
+  RM.setSpeed(12);
   delay(2000);
 }
 
 void loop() {
  //testBox();
-
+/*
  int x = int(random(30000));  //rough and dirty way to get some very low percent chance of enacting the following code - nesting the chance within a chance
  if(x<4){
    int y = int(random(30000));
@@ -30,14 +30,14 @@ void loop() {
  testBoundaries();
  }
  }
-
+*/
  
- //LineShapes();
- 
+ LeftSideUpLineShapes();
+ RightSideDownLineShapes();
  
  
  //DefaultSmallStep();
- testBoundaries();
+ //testBoundaries();
 }
 
 
