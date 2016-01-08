@@ -19,8 +19,8 @@ void setup() {
 
 void loop() {
  //testBox();
-/*
- int x = int(random(30000));
+
+ int x = int(random(30000));  //rough and dirty way to get some very low percent chance of enacting the following code - nesting the chance within a chance
  if(x<4){
    int y = int(random(30000));
    if (y<4){
@@ -30,17 +30,13 @@ void loop() {
  testBoundaries();
  }
  }
- */
- 
- 
- 
 
  
- LineShapes();
+ //LineShapes();
  
  
  
- DefaultSmallStep();
+ //DefaultSmallStep();
  testBoundaries();
 }
 
