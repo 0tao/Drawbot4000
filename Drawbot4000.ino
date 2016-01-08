@@ -1,10 +1,10 @@
 #include <AFMotor.h>
 int upperLimit = 1;
-int lowerLimit = 2500;
+int lowerLimit = 10;
 int L = lowerLimit; //initial left motor cord length
 int R = lowerLimit; //initial right motor cord length
-int stepSizeLimit = 500;
-int randoLength = 40; // this is the length of
+int stepSizeLimit = 50;
+int randoLength = 130; // this is the length of
 
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
@@ -32,14 +32,16 @@ void loop() {
  }
  }
 */
- 
+ int c2 = int(random(10000));
+ if (c2<4){
  LeftSideUpLineShapes();
  RightSideDownLineShapes();
  LeftSideDownLineShapes();
  RightSideUpLineShapes();
- 
- //DefaultSmallStep();
- //testBoundaries();
+ } else {
+ DefaultSmallStep();
+ }
+ testBoundaries();
 }
 
 
