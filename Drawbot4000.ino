@@ -4,6 +4,7 @@ int lowerLimit = 2500;
 int L = lowerLimit; //initial left motor cord length
 int R = lowerLimit; //initial right motor cord length
 int stepSizeLimit = 500;
+int randoLength = 40; // this is the length of
 
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
