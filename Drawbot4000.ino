@@ -12,35 +12,33 @@ void setup() {
   Serial.begin(38400);
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
   delay(2000);
-  LM.setSpeed(5);
-  RM.setSpeed(5);
+  LM.setSpeed(2);
+  RM.setSpeed(2);
   delay(2000);
 }
 
 void loop() {
  //testBox();
-
+/*
  int x = int(random(30000));
  if(x<4){
+   int y = int(random(30000));
+   if (y<4){
  MediumStep();
  DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- DefaultSmallStep();
- testBoundaries();
- MediumStep();
- DefaultSmallStep();
- testBoundaries();
- MediumStep();
- DefaultSmallStep();
+// DefaultSmallStep();
  testBoundaries();
  }
+ }
+ */
+ 
+ 
+ 
+
+ 
+ LineShapes();
+ 
+ 
  
  DefaultSmallStep();
  testBoundaries();
