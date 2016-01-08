@@ -34,7 +34,8 @@ void loop() {
  
  LeftSideUpLineShapes();
  RightSideDownLineShapes();
- 
+ LeftSideDownLineShapes();
+ RightSideUpLineShapes();
  
  //DefaultSmallStep();
  //testBoundaries();
