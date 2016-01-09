@@ -1,7 +1,7 @@
 void LeftSideUpLineShapes(){
   
   
-   int zizzo = int(random(20)); //choose random 0 1 2 3 
+   int zizzo = int(random(lineGap)); //choose random 0 1 2 3 
   int zizzo2 = int(random(randoLength)); //choose random 0 1 2 3 
   int numLines = int(random(13));
   
