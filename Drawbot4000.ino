@@ -1,10 +1,10 @@
 #include <AFMotor.h>
 int upperLimit = 1;
-int lowerLimit = 10;
-int L = lowerLimit; //initial left motor cord length
-int R = lowerLimit; //initial right motor cord length
-int stepSizeLimit = 50;
-int randoLength = 130; // this is the length of
+int lowerLimit = 400;
+int L = 150; //initial left motor cord length
+int R = 150; //initial right motor cord length
+int stepSizeLimit = 30; //this is for the MediumStep function
+int randoLength = 80; // this is the length of the long lateral lines when going up or down
 
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
@@ -26,22 +26,27 @@ void loop() {
    int y = int(random(30000));
    if (y<4){
  MediumStep();
+  LeftSideUpLineShapes();
+ RightSideDownLineShapes();
+ LeftSideDownLineShapes();
+ RightSideUpLineShapes();
  DefaultSmallStep();
 // DefaultSmallStep();
  testBoundaries();
  }
  }
 */
- int c2 = int(random(10000));
- if (c2<4){
- LeftSideUpLineShapes();
- RightSideDownLineShapes();
- LeftSideDownLineShapes();
- RightSideUpLineShapes();
- } else {
- DefaultSmallStep();
- }
- testBoundaries();
+ //int c2 = int(random(100));
+ //if (c2<4){
+//LeftSideUpLineShapes();
+// RightSideDownLineShapes();
+//LeftSideDownLineShapes();
+// RightSideUpLineShapes();
+// } else {
+ //DefaultSmallStep();
+ //}
+ //DefaultSmallStep();
+// testBoundaries();
 }
 
 
