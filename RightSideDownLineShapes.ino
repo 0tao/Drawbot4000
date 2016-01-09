@@ -12,10 +12,10 @@ for(int i=0;i<numLines;i++){
     L+=zizzo2;
     //testBoundaries();
     RM.step(zizzo,BACKWARD, INTERLEAVE);
-    R-=zizzo;
+    R+=zizzo;
     //testBoundaries();
     LM.step(zizzo2,BACKWARD,INTERLEAVE);
-    L+=zizzo2;
+    L-=zizzo2;
     //testBoundaries();
 }
 

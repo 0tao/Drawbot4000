@@ -6,7 +6,7 @@ void RightSideUpLineShapes(){
   
 for(int i=0;i<numLines;i++){
     RM.step(zizzo, FORWARD, INTERLEAVE); 
-    R+=zizzo;
+    R-=zizzo;
     //testBoundaries();
     LM.step(zizzo2,FORWARD,INTERLEAVE);
     L+=zizzo2;
@@ -15,7 +15,7 @@ for(int i=0;i<numLines;i++){
     R-=zizzo;
     //testBoundaries();
     LM.step(zizzo2,BACKWARD,INTERLEAVE);
-    L+=zizzo2;
+    L-=zizzo2;
     //testBoundaries();
 }
 

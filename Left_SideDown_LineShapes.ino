@@ -9,15 +9,16 @@ for(int i=0;i<numLines;i++){
     L+=zizzo;
     //testBoundaries();
     RM.step(zizzo2,FORWARD,INTERLEAVE);
-    R+=zizzo2;
+    R-=zizzo2;
     //testBoundaries();
     LM.step(zizzo,FORWARD, INTERLEAVE);
-    L-=zizzo;
+    L+=zizzo;
     //testBoundaries();
     RM.step(zizzo2,BACKWARD,INTERLEAVE);
     R+=zizzo2;
-   // testBoundaries();
+   //testBoundaries();
 }
+
 
 
 }
