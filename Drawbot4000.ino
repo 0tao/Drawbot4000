@@ -1,4 +1,11 @@
 #include <AFMotor.h>
+#include <NewPing.h>
+
+#define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
+#define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
+
 int upperLimit = 1;
 int lowerLimit = 2500;
 int L = 2499; //initial left motor cord length
@@ -21,6 +28,11 @@ void setup() {
 }
 
 void loop() {
+   delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
+  Serial.print("Ping: ");
+  Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
+  Serial.println("cm");
+  
   //testBox();
   /*
  int x = int(random(30000));  //rough and dirty way to get some very low percent chance of enacting the following code - nesting the chance within a chance
@@ -38,6 +50,9 @@ void loop() {
    }
    }
    */
+   /*
+   
+   /
   int randoChoice = int(random(100));
   if (randoChoice<4){
     randoLength = 500;
@@ -71,7 +86,8 @@ void loop() {
   // DefaultSmallStep();
   // }
   //DefaultSmallStep();
-  // testBoundaries();
+  */
+  testBoundaries();
 }
 
 
