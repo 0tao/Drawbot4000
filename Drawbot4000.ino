@@ -48,11 +48,13 @@ void loop() {
   
   
   int lineGapChoice = int(random(100));
-  if (lineGapChoice<2){
-    lineGap = 30;
-  }
-  else{
-    lineGap = 7;
+  if (lineGapChoice<12){
+  lineGap = int(random(70,150));
+  
+ // } else if (lineGapChoice <25){
+  //  lineGap = ;
+ } else {
+    lineGap = 5;
   }
 
   //int c2 = int(random(10000));
