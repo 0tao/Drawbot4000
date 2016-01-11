@@ -12,11 +12,16 @@ void simpleXY(){
   Serial.println("GAP GAP GAP");
   Serial.println("y =  ");
   Serial.println(y);
-  RM.step(1, BACKWARD, INTERLEAVE);
+  RM.step(10, BACKWARD, INTERLEAVE);
   R+=1;
-  LM.step(1, FORWARD, INTERLEAVE);
+  LM.step(10, FORWARD, INTERLEAVE);
   L+=1;
-  delay(1000);
+  while(y>310){
+      RM.step(10, FORWARD, INTERLEAVE);
+      R-=1;
+      LM.step(10, BACKWARD, INTERLEAVE);
+      L-=1;
+  }
   
   
   
