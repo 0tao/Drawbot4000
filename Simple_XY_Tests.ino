@@ -1,19 +1,25 @@
 void simpleXY(){
-
+  
   x0 = int((pow(w,2)-pow(R,2)+pow(L,2))/(2*w));
   y = sqrt(pow(R,2)-pow(x0,2));
-  if(y>=310){
-    RM.step(10, FORWARD, INTERLEAVE);
-    R-=1;
+  RM.step(10, BACKWARD, INTERLEAVE);
+  R+=10;
+  LM.step(10, FORWARD, INTERLEAVE);
+  L+=10;
+  if(y>=100){
+    RM.step(10, FORWARD, INTERLEAVE); 
+    R-=10;
     LM.step(10, BACKWARD, INTERLEAVE);
-    L-=1;
+    L-=10;
   }
-  else{
-    RM.step(10, BACKWARD, INTERLEAVE);
-    R+=1;
-    LM.step(10, FORWARD, INTERLEAVE);
-    L+=1;
-  }
+  
+
+  
+  
+
+
+
+
 
 
   /*
@@ -79,6 +85,10 @@ void simpleXY(){
    } 
    */
 }
+
+
+
+
 
 
 
