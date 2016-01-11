@@ -1,20 +1,21 @@
-void simpleXY(){
-  
-  
-  
-  RM.step(10, BACKWARD, INTERLEAVE);
-  R+=10;
-  LM.step(10, FORWARD, INTERLEAVE);
-  L+=10;
-  
+void testLowerBoundaryZizzo(){
+
+  /*
   //// This part will pull the bottom Y back up to the top
-  if(y>=100){
-    RM.step(10, FORWARD, INTERLEAVE); 
-    R-=10;
-    LM.step(10, BACKWARD, INTERLEAVE);
-    L-=10;
+  if(y>=lowerYlimit){
+    RM.step(zizzo, FORWARD, INTERLEAVE); 
+    R-=zizzo;
+    LM.step(zizzo, BACKWARD, INTERLEAVE);
+    L-=zizzo;
+  }
+   if(y>=100){
+    RM.step(zizzo2, FORWARD, INTERLEAVE); 
+    R-=zizzo2;
+    LM.step(zizzo2, BACKWARD, INTERLEAVE);
+    L-=zizzo2;
   }
   
+  */
   
   
 

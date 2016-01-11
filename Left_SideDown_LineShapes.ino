@@ -17,7 +17,7 @@ void LeftSideDownLineShapes(){
     testBoundaries();
     RM.step(zizzo2,BACKWARD,INTERLEAVE);
     R+=zizzo2;
-    testBoundaries();
+   // testBoundaries();
   }
 
 
