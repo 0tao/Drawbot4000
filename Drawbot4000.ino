@@ -16,15 +16,24 @@ int R = -1; // Right Motor string length - within the defined space above (its -
 
 
 ///////// the variables beow control how the lines are drawn
-
 int stepSizeLimit = 30; //this is for the MediumStep function - currently not used
 int randoLength; // this is the max length of the long lateral lines when going up or down
 int lineGap; // max 'large gap' between dense lines
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
 
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+/////////////////////XY STUFF//////////////////////////////////
+int x0,x1, y;
+int w = 800;
+int lefty = 500;
 
 
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -40,36 +49,15 @@ void setup() {
   LM.step(1, FORWARD, INTERLEAVE); //engage left motor
   L+=1;
   pinMode(ledPin, OUTPUT);  
-  delay(4000);  //wait 4 seconds, then start the bot going
+  //delay(4000);  //wait 4 seconds, then start the bot going
 }
 
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
-
-
-  int choice = int(random(10));  
-  LM.step(choice, FORWARD, INTERLEAVE);
-  L+=choice;
-  Serial.println(L);
-  while(L>=200){
-    LM.step(1, BACKWARD, INTERLEAVE);
-    L-=1;
-    Serial.println(L);
-  }
-
-  int choice2 = int(random(10)); 
-  LM.step(choice2, BACKWARD, INTERLEAVE);
-  L-=choice2;
-  Serial.println(L);
-  while(L<=0){
-    LM.step(1, FORWARD, INTERLEAVE);
-    L+=1;
-    Serial.println(L);
-  }
-
-
+  
+  simpleXY();  
 
   /*
   ////////////////////////////////////////////SENSOR INPUT//////////////////////////////////////////////////////////////////////////////////////
