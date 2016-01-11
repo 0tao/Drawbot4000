@@ -1,17 +1,21 @@
 void simpleXY(){
   
-  x0 = int((pow(w,2)-pow(R,2)+pow(L,2))/(2*w));
-  y = sqrt(pow(R,2)-pow(x0,2));
+  
+  
   RM.step(10, BACKWARD, INTERLEAVE);
   R+=10;
   LM.step(10, FORWARD, INTERLEAVE);
   L+=10;
+  
+  //// This part will pull the bottom Y back up to the top
   if(y>=100){
     RM.step(10, FORWARD, INTERLEAVE); 
     R-=10;
     LM.step(10, BACKWARD, INTERLEAVE);
     L-=10;
   }
+  
+  
   
 
   

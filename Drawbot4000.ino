@@ -58,7 +58,8 @@ void setup() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
-  
+  x0 = int((pow(w,2)-pow(R,2)+pow(L,2))/(2*w)); //calculate the left hand side x cartesian coordinate
+  y = sqrt(pow(R,2)-pow(x0,2)); // this calculates the y cartesian coordinate
   simpleXY();  
   
   
