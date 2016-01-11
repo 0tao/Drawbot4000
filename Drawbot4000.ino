@@ -10,9 +10,9 @@ int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
 int upperLimit = 1;  //the top of the drawing space
-int lowerLimit = 300; //the bottom centre of the drawing space
-int L = 299; // Left motor string length - within the defined space above
-int R = 299; // Right Motor string length - within the defined space above
+int lowerLimit = 1300; //the bottom centre of the drawing space
+int L = 1299; // Left motor string length - within the defined space above
+int R = 1299; // Right Motor string length - within the defined space above
 
 
 ///////// the variables beow control how the lines are drawn
@@ -72,19 +72,19 @@ void loop() {
 /////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
   int randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<4){
-    randoLength = 100;
+    randoLength = 500;
   }
   else{
-    randoLength = 20;
+    randoLength = 30;
   }
 
 
   int lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
-  if (lineGapChoice<12){
+  if (lineGapChoice<6){
     lineGap = int(random(100));
   } 
   else {
-    lineGap = 10;
+    lineGap = 5;
   }
   
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
