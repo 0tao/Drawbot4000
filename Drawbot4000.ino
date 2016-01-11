@@ -6,34 +6,49 @@
 #define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 int ledPin = 14;  //define the pin that the LED is on
-
+int motorSpeed = 6;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
-int upperLimit = 1;
-int lowerLimit = 2000;
-int L = 1000; //initial left motor cord length
-int R = 1000; //initial right motor cord length
-int stepSizeLimit = 30; //this is for the MediumStep function
-int randoLength = 30; // this is the length of the long lateral lines when going up or down
-int lineGap = 20; //small gap separating the longer lines
+int upperLimit = 1;  //the top of the drawing space
+int lowerLimit = 2000; //the bottom centre of the drawing space
+int L = 1000; // define where in the above drawing space the pen starts
+int R = 1000; //define where in the above drawing space the pen starts
+
+
+///////// the variables beow control how the lines are drawn
+
+int stepSizeLimit = 30; //this is for the MediumStep function - currently not used
+int randoLength; // this is the max length of the long lateral lines when going up or down
+int lineGap; // max 'large gap' between dense lines
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 void setup() {
   Serial.begin(38400);
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
   delay(2000);
-  LM.setSpeed(6);
-  RM.setSpeed(6);
+  LM.setSpeed(motorSpeed); //initiate left motor speed
+  RM.setSpeed(motorSpeed); //initiate right motor speed
   delay(2000);
-  RM.step(1, BACKWARD, INTERLEAVE);
-  LM.step(1, BACKWARD, INTERLEAVE);
-
+  RM.step(1, BACKWARD, INTERLEAVE); //engage right motor
+  LM.step(1, BACKWARD, INTERLEAVE); //engage left motor
   pinMode(ledPin, OUTPUT);  
+  delay(4000);  //wait 4 seconds, then start the bot going
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
+  
+  
   /*
+  ////////////////////////////////////////////SENSOR INPUT//////////////////////////////////////////////////////////////////////////////////////
   delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
   Serial.print("Ping: ");
   Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
@@ -49,29 +64,13 @@ void loop() {
     LM.setSpeed(4);
     RM.setSpeed(4);
   }
+
   */
   
-  //testBox();
-  /*
- int x = int(random(30000));  //rough and dirty way to get some very low percent chance of enacting the following code - nesting the chance within a chance
-   if(x<4){
-   int y = int(random(30000));
-   if (y<4){
-   MediumStep();
-   LeftSideUpLineShapes();
-   RightSideDownLineShapes();
-   LeftSideDownLineShapes();
-   RightSideUpLineShapes();
-   DefaultSmallStep();
-   // DefaultSmallStep();
-   testBoundaries();
-   }
-   }
-   */
 
 
-
-  int randoChoice = int(random(100));
+/////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
+  int randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<4){
     randoLength = 500;
   }
@@ -80,19 +79,15 @@ void loop() {
   }
 
 
-  int lineGapChoice = int(random(100));
+  int lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
   if (lineGapChoice<12){
     lineGap = int(random(50));
-
-    // } else if (lineGapChoice <25){
-    //  lineGap = ;
   } 
   else {
     lineGap = 5;
   }
-
-  //int c2 = int(random(10000));
-  //if (c2<4){
+  
+  ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
   LeftSideUpLineShapes();
   testBoundaries();
   RightSideDownLineShapes();
@@ -101,13 +96,9 @@ void loop() {
   testBoundaries();
   RightSideUpLineShapes();
   testBoundaries();
-  // } else {
-  // DefaultSmallStep();
-  // }
-  //DefaultSmallStep();
-
+ 
   //testBoundaries();
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 
