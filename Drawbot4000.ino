@@ -17,8 +17,8 @@ int R = 50; // Right Motor string length - within the defined space above (its -
 
 ///////// the variables beow control how the lines are drawn
 int stepSizeLimit = 30; //this is for the MediumStep function - currently not used
-int randoLength; // this is the max length of the long lateral lines when going up or down
-int lineGap; // max 'large gap' between dense lines
+int randoLength = 10; // this is the max length of the long lateral lines when going up or down
+int lineGap = 10; // max 'large gap' between dense lines
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
 
@@ -27,11 +27,12 @@ AF_Stepper LM(400, 2),RM(400,1);
 /////////////////////XY STUFF//////////////////////////////////
 int x0,x1;
 int w = 80;
-int Righty = 50;
-int Lefty = 50;
+int leftLimit = 0;
+int rightLimit = 500;
 int y =0;
 int lowerYlimit = 200;
-int upperYlimit = 
+int upperYlimit = 0;
+
 
 
 ///////////////////////////////////////////////////////////////
@@ -86,7 +87,7 @@ void loop() {
    */
 
 
-  /*
+  
 /////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
    int randoChoice = int(random(100));  // this defines how long the long back and forth lines are
    if (randoChoice<4){
@@ -114,7 +115,7 @@ void loop() {
    
    //testBoundaries();
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   */
+   
 }
 
 
