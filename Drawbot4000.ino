@@ -6,13 +6,13 @@
 #define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 int ledPin = 14;  //define the pin that the LED is on
-int motorSpeed = 6;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
 int upperLimit = 1;  //the top of the drawing space
-int lowerLimit = 2000; //the bottom centre of the drawing space
-int L = 1000; // define where in the above drawing space the pen starts
-int R = 1000; //define where in the above drawing space the pen starts
+int lowerLimit = 300; //the bottom centre of the drawing space
+int L = 299; // Left motor string length - within the defined space above
+int R = 299; // Right Motor string length - within the defined space above
 
 
 ///////// the variables beow control how the lines are drawn
@@ -72,30 +72,27 @@ void loop() {
 /////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
   int randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<4){
-    randoLength = 500;
+    randoLength = 100;
   }
   else{
-    randoLength = 50;
+    randoLength = 20;
   }
 
 
   int lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
   if (lineGapChoice<12){
-    lineGap = int(random(50));
+    lineGap = int(random(100));
   } 
   else {
-    lineGap = 5;
+    lineGap = 10;
   }
   
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
   LeftSideUpLineShapes();
-  testBoundaries();
   RightSideDownLineShapes();
-  testBoundaries();
   LeftSideDownLineShapes();
-  testBoundaries();
   RightSideUpLineShapes();
-  testBoundaries();
+  
  
   //testBoundaries();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

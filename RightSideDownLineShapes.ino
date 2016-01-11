@@ -5,18 +5,19 @@ void RightSideDownLineShapes(){
   int numLines = int(random(13));
   
 for(int i=0;i<numLines;i++){
+  testBoundaries();
     RM.step(zizzo, BACKWARD, INTERLEAVE); 
     R+=zizzo;
-    //testBoundaries();
+    testBoundaries();
     LM.step(zizzo2,FORWARD,INTERLEAVE);
     L+=zizzo2;
-    //testBoundaries();
+    testBoundaries();
     RM.step(zizzo,BACKWARD, INTERLEAVE);
     R+=zizzo;
-    //testBoundaries();
+    testBoundaries();
     LM.step(zizzo2,BACKWARD,INTERLEAVE);
     L-=zizzo2;
-    //testBoundaries();
+    testBoundaries();
 }
 
 
