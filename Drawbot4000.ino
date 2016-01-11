@@ -11,8 +11,8 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 int upperLimit = 1;  //the top of the drawing space
 int lowerLimit = 1300; //the bottom centre of the drawing space
-int L = -1; // Left motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
-int R = -1; // Right Motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
+int L = 500; // Left motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
+int R = 500; // Right Motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
 
 
 ///////// the variables beow control how the lines are drawn
@@ -60,6 +60,8 @@ void setup() {
 void loop() {
   
   simpleXY();  
+  
+  
 
   /*
   ////////////////////////////////////////////SENSOR INPUT//////////////////////////////////////////////////////////////////////////////////////

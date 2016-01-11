@@ -1,7 +1,7 @@
 void simpleXY(){
   
-  x0 = int((pow(w,2)-pow(Righty,2)+pow(Lefty,2))/(2*w));
-  y = sqrt(pow(Righty,2)-pow(x0,2));
+  x0 = int((pow(w,2)-pow(R,2)+pow(L,2))/(2*w));
+  y = sqrt(pow(R,2)-pow(x0,2));
   Serial.println("x0 =  ");
   Serial.println(x0);
   Serial.println("GAP GAP GAP");
@@ -12,8 +12,10 @@ void simpleXY(){
   Serial.println("GAP GAP GAP");
   Serial.println("y =  ");
   Serial.println(y);
-  Righty+=1;
-  Lefty+=1;
+  RM.step(1, BACKWARD, INTERLEAVE);
+  R+=1;
+  LM.step(1, FORWARD, INTERLEAVE);
+  L+=1;
   delay(1000);
   
   
