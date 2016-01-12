@@ -10,15 +10,15 @@ int motorSpeed = 5;  //the speed of the motors  (6-7 is about the max speed with
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
 int upperLimit = 1;  //the top of the drawing space
-int lowerLimit = 1300; //the bottom centre of the drawing space
-int L = 50; // Left motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
-int R = 50; // Right Motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
+int lowerLimit = 200; //the bottom centre of the drawing space
+int L = 100; // Left motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
+int R = 100; // Right Motor string length - within the defined space above (its -1 becaues i push it + 1 in the setup to engage the motors straight away)
 
 
 ///////// the variables beow control how the lines are drawn
 int stepSizeLimit = 30; //this is for the MediumStep function - currently not used
 int lateralLength = 10; // this is the max length of the long lateral lines when going up or down
-int lineGap = 10; // max 'large gap' between dense lines
+int lineGap = 5; // max 'large gap' between dense lines
 int lineGapRand, lateralLengthRand; // the amout to vary the density and spacing of the lines with each drawing pass
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
@@ -60,11 +60,7 @@ void setup() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
-  x0 = int((pow(w,2)-pow(R,2)+pow(L,2))/(2*w)); //calculate the left hand side x cartesicoordinate
-  y = sqrt(pow(R,2)-pow(x0,2)); // this calculates the y cartesian coordinate
-  
-  
-  
+
 
   /*
   ////////////////////////////////////////////SENSOR INPUT//////////////////////////////////////////////////////////////////////////////////////
@@ -91,10 +87,10 @@ void loop() {
 /////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
    int randoChoice = int(random(100));  // this defines how long the long back and forth lines are
    if (randoChoice<4){
-   randoLength = 500;
+   lateralLength= 80;
    }
    else{
-   randoLength = 30;
+   lateralLength = 10;
    }
    
    
