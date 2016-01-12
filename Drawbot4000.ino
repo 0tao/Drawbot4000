@@ -6,7 +6,7 @@
 #define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 int ledPin = 14;  //define the pin that the LED is on
-int motorSpeed = 1;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int motorSpeed = 5;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
 int upperLimit = 1;  //the top of the drawing space
@@ -17,8 +17,9 @@ int R = 50; // Right Motor string length - within the defined space above (its -
 
 ///////// the variables beow control how the lines are drawn
 int stepSizeLimit = 30; //this is for the MediumStep function - currently not used
-int randoLength = 10; // this is the max length of the long lateral lines when going up or down
+int lateralLength = 10; // this is the max length of the long lateral lines when going up or down
 int lineGap = 10; // max 'large gap' between dense lines
+int lineGapRand, lateralLengthRand; // the amout to vary the density and spacing of the lines with each drawing pass
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
 
@@ -32,7 +33,6 @@ int rightLimit = 500;
 int y =0;
 int lowerYlimit = 200;
 int upperYlimit = 0;
-
 
 
 ///////////////////////////////////////////////////////////////
