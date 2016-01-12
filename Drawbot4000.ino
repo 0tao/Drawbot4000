@@ -31,7 +31,7 @@ int w = 80;
 int leftLimit = 0;
 int rightLimit = 500;
 int y =0;
-int lowerYlimit = 200;
+int lowerYlimit = 500;
 int upperYlimit = 0;
 
 
@@ -96,7 +96,7 @@ void loop() {
    
    int lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
    if (lineGapChoice<6){
-   lineGap = int(random(100));
+   lineGap = int(random(70));
    } 
    else {
    lineGap = 5;
@@ -104,9 +104,13 @@ void loop() {
    
    ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
    LeftSideUpLineShapes();
+   testBoundaries();
    RightSideDownLineShapes();
+   testBoundaries();
    LeftSideDownLineShapes();
+   testBoundaries();
    RightSideUpLineShapes();
+   testBoundaries();
    
    
    //testBoundaries();

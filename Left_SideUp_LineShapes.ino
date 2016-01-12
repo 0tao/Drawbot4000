@@ -8,15 +8,19 @@ void LeftSideUpLineShapes(){
   for(int i=0;i<numLines;i++){
     LM.step(lineGapRand, BACKWARD, INTERLEAVE); 
     L-=lineGapRand;
+    testXYboundaries();
 ///////////////////////////////////////////////
     RM.step(lateralLengthRand,BACKWARD,INTERLEAVE);
     R+=lateralLengthRand;
+    testXYboundaries();
 ///////////////////////////////////////////////
     LM.step(lineGapRand,BACKWARD, INTERLEAVE);
     L-=lineGapRand;
+    testXYboundaries();
 ///////////////////////////////////////////////
     RM.step(lateralLengthRand,FORWARD,INTERLEAVE);
     R-=lateralLengthRand;
+    testXYboundaries();
 ///////////////////////////////////////////////
 
   }

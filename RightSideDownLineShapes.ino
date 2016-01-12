@@ -8,15 +8,19 @@ void RightSideDownLineShapes(){
   for(int i=0;i<numLines;i++){
     RM.step(lineGapRand, BACKWARD, INTERLEAVE); 
     R+=lineGapRand;
+    testXYboundaries();
     /////////////////////////////////////////////////////////
     LM.step(lateralLengthRand,FORWARD,INTERLEAVE);
     L+=lateralLengthRand;
+    testXYboundaries();
     /////////////////////////////////////////////////////////////
     RM.step(lineGapRand,BACKWARD, INTERLEAVE);
     R+=lineGapRand;
+    testXYboundaries();
     //////////////////////////////////////////////////////////
     LM.step(lateralLengthRand,BACKWARD,INTERLEAVE);
     L-=lateralLengthRand;
+    testXYboundaries();
   }
 
 
